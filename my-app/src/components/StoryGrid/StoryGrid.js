@@ -5,7 +5,7 @@ function StoryGrid({ onSelectStory, filterCategory }) {
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/stories')
+    fetch(`${process.env.REACT_APP_API_URL}/api/stories`)
       .then((res) => res.json())
       .then((data) => {
         const filtered = filterCategory
