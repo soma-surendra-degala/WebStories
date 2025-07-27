@@ -10,7 +10,7 @@ function Stories() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_BASE_URL}/api/stories/${id}`)
+    fetch(`${process.env.REACT_APP_API_URL}/api/stories/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setStory(data);
