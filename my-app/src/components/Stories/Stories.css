@@ -1,0 +1,113 @@
+/* FULLSCREEN CONTAINER */
+.story-viewer {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #1e1e2f, #1e2a38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+/* DESKTOP (default) */
+.story-slide {
+  width: 420px;
+  height: 720px;
+  position: relative;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+} 
+
+
+.story-quote {
+  z-index: 1;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  max-width: 90%;
+  text-align: center;
+}
+
+
+
+
+/* NAVIGATION BUTTONS */
+.story-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  padding: 0 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.story-nav button {
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.story-nav button:hover {
+  background: #f0f0f0;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+  .story-viewer {
+    padding: 1rem;
+  }
+
+  .story-slide {
+    width: 90vw;         /* smaller width on mobile */
+    height: auto;        /* auto height based on image aspect */
+    border-radius: 12px;
+  }
+
+  .story-image {
+    width: 100%;
+    height: auto;        /* don't stretch it vertically */
+    object-fit: contain; /* show entire image (alternative: use 'cover' for cropping) */
+    position: relative;
+  }
+
+  .story-quote {
+    font-size: 0.9rem;
+    bottom: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .story-slide {
+    width: 420px;
+    height: 720px;
+  }
+}

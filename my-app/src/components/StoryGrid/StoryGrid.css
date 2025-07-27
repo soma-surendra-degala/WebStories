@@ -1,0 +1,68 @@
+/* Grid background */
+.story-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2.5rem;
+  min-height: 100vh;
+  background: linear-gradient(to right, #e0eafc, #cfdef3); /* Soft gradient */
+}
+
+/* Individual card */
+.story-card {
+  width: 240px;
+  height: 360px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.story-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Optional overlay */
+.story-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.story-card:hover::before {
+  opacity: 1;
+}
+
+/* Image styling */
+.story-full-img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.story-card:hover .story-full-img {
+  transform: scale(1.07);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .story-card {
+    width: 48%;      /* Two cards in one row */
+    height: 300px;
+  }
+
+  .story-grid {
+    gap: 1rem;        /* Slightly smaller gap for tighter fit */
+    padding: 1rem;
+  }
+}
